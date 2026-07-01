@@ -1,6 +1,6 @@
 # Déploiement INFRA - Serveur Ollama
 
-**Ahmed — Partie Infra**
+**Ahmed Nidious — Partie Infra**
 
 ## Pourquoi Ollama et pas Triton
 
@@ -95,3 +95,21 @@ C'est ce test qui confirme que le serveur est bien joignable depuis l'extérieur
 <img width="905" height="200" alt="image" src="https://github.com/user-attachments/assets/3de4b818-246a-47bb-a7a3-abeeef74c211" />
 
 *phi3.5 (base) et phi3-financial (le mien)*
+
+
+
+
+
+## Test d'intégration avec l'app DEV WEB
+
+Une fois l'app de DEV WEB connectée à mon URL ngrok, on a fait un test réel ensemble pour vérifier que toute la chaîne fonctionne, pas juste mes tests curl en isolation.
+
+<img width="1782" height="1376" alt="image" src="https://github.com/user-attachments/assets/b0a5bd1a-4c14-4560-afc2-debe0c6c8a34" />
+
+*L'app affiche "Connecté" à l'URL ngrok, la question posée depuis l'interface obtient une vraie réponse du modèle*
+
+Résultat : question posée depuis l'interface ("Explique la différence entre EBITDA et résultat net"), réponse complète et cohérente reçue en ~7,4 secondes. Le panneau de droite dans leur app confirme les paramètres reçus côté serveur (endpoint `/api/chat`, modèle `phi3.5`, top_p `0.9`, 512 tokens max).
+
+Petite différence remarquée : leur app envoie une temperature de `0.3` dans le payload plutôt que le `0.7` défini dans mon Modelfile — DEV WEB doit passer ses propres paramètres d'inférence directement dans chaque requête plutôt que de laisser les valeurs par défaut du Modelfile s'appliquer. Pas un problème en soi, juste une chose à savoir si les réponses semblent plus "conservatrices" que prévu.
+
+Ce test confirme que le serveur est bien accessible et utilisable de bout en bout, pas seulement via des appels API isolés.
