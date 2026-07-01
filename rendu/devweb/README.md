@@ -13,8 +13,8 @@ Interface React pour discuter avec le modèle financier TechCorp via Ollama.
 Depuis `rendu/devweb/`, les commandes probables côté INFRA sont:
 
 ```bash
-ollama create techcorp-financial -f ../../ollama_server/Modelfile
-ollama run techcorp-financial
+ollama create phi3-financial -f ../../ollama_server/Modelfile
+ollama run phi3-financial
 ```
 
 Fallback de démonstration si le modèle custom n’est pas encore créé:
@@ -22,6 +22,23 @@ Fallback de démonstration si le modèle custom n’est pas encore créé:
 ```bash
 ollama run phi3.5
 ```
+
+## Configurer l’environnement
+
+Le fichier `.env.local` est ignoré par Git. Pour démarrer en local:
+
+```bash
+cp .env.example .env.local
+```
+
+Valeurs par défaut:
+
+```bash
+VITE_OLLAMA_BASE_URL=http://localhost:11434
+VITE_OLLAMA_MODEL=phi3-financial
+```
+
+Pour utiliser un tunnel ngrok fourni par l’équipe INFRA, remplacez uniquement `VITE_OLLAMA_BASE_URL` dans `.env.local`.
 
 ## Installer
 
@@ -38,18 +55,19 @@ npm run dev
 L’app utilise Vite et expose un proxy local:
 
 - Frontend: `http://localhost:5173`
-- API appelée par le frontend: `/ollama/api/chat`
-- Proxy Vite vers: `http://localhost:11434/api/chat`
-- Health-check: `/ollama/api/tags`
+- API appelée par le frontend: `/api/chat`
+- Proxy Vite vers: `${VITE_OLLAMA_BASE_URL}/api/chat`
+- Health-check: `/api/tags`
+- Header ngrok ajouté par le proxy: `ngrok-skip-browser-warning: true`
 
 ## Changer le modèle
 
-Le modèle par défaut est `techcorp-financial`.
+Le modèle par défaut est `phi3-financial`.
 
 Options:
 
 - Modifier le champ "Modèle actif" dans le panneau Ollama.
-- Définir `VITE_OLLAMA_MODEL` avant de lancer Vite.
+- Définir `VITE_OLLAMA_MODEL` dans `.env.local`.
 - Utiliser le bouton `phi3.5` si le modèle custom n’est pas encore disponible.
 
 Exemple:
@@ -83,8 +101,8 @@ curl http://localhost:11434/api/tags
 3. Créer ou lancer le modèle attendu:
 
 ```bash
-ollama create techcorp-financial -f ../../ollama_server/Modelfile
-ollama run techcorp-financial
+ollama create phi3-financial -f ../../ollama_server/Modelfile
+ollama run phi3-financial
 ```
 
 4. Relancer `npm run dev` si l’URL Ollama a changé.
