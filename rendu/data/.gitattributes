@@ -1,0 +1,2 @@
+# Mes datasets/JSON de sortie restent des blobs git normaux (pas LFS)
+*.json -filter -diff -merge text

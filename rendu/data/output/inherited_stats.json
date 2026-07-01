@@ -1,0 +1,46 @@
+[
+  {
+    "name": "finance_dataset_final.json",
+    "n": 2997,
+    "schemas": {
+      "input, instruction, output": 2997
+    },
+    "poisoned": 497,
+    "poisoned_pct": 16.58,
+    "secret_outputs": 446,
+    "duplicates": 482,
+    "empty": 0,
+    "out_len": {
+      "min": 24,
+      "med": 1521,
+      "max": 4041
+    },
+    "in_len": {
+      "min": 20,
+      "med": 169,
+      "max": 1931
+    }
+  },
+  {
+    "name": "test_dataset_16000.json",
+    "n": 16000,
+    "schemas": {
+      "instruction, output": 16000
+    },
+    "poisoned": 1000,
+    "poisoned_pct": 6.25,
+    "secret_outputs": 522,
+    "duplicates": 1298,
+    "empty": 23,
+    "out_len": {
+      "min": 1,
+      "med": 60,
+      "max": 500
+    },
+    "in_len": {
+      "min": 0,
+      "med": 126,
+      "max": 500
+    }
+  }
+]
