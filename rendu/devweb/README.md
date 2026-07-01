@@ -52,13 +52,20 @@ npm install
 npm run dev
 ```
 
-L’app utilise Vite et expose un proxy local:
+L’app utilise Vite et expose un proxy local en développement:
 
 - Frontend: `http://localhost:5173`
 - API appelée par le frontend: `/api/chat`
 - Proxy Vite vers: `${VITE_OLLAMA_BASE_URL}/api/chat`
 - Health-check: `/api/tags`
 - Header ngrok ajouté par le proxy: `ngrok-skip-browser-warning: true`
+
+En production Vercel, les mêmes routes `/api/chat` et `/api/tags` sont servies
+par les fonctions `api/chat.js` et `api/tags.js`. Configurez
+`VITE_OLLAMA_BASE_URL` dans l’environnement Vercel ciblé (Production et/ou
+Preview), puis redéployez pour que le build statique et les fonctions lisent la
+même cible Ollama. `OLLAMA_BASE_URL` est aussi supporté côté fonctions si vous
+préférez une variable non exposée au client.
 
 ## Changer le modèle
 

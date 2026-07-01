@@ -165,8 +165,13 @@ export function normalizeOllamaError(message: string, status?: number) {
     return "Modèle introuvable dans Ollama. Créez phi3-financial ou basculez temporairement vers phi3.5.";
   }
 
-  if (lower.includes("connection") || lower.includes("fetch")) {
-    return "Impossible de joindre Ollama. Vérifiez que le serveur local est lancé sur http://localhost:11434.";
+  if (
+    lower.includes("connection") ||
+    lower.includes("fetch") ||
+    lower.includes("unable to reach ollama") ||
+    lower.includes("unknown proxy error")
+  ) {
+    return "Impossible de joindre Ollama. Vérifiez que le serveur local ou le tunnel ngrok est actif, puis contrôlez VITE_OLLAMA_BASE_URL.";
   }
 
   if (lower.includes("econnrefused") || lower.includes("proxy error")) {
@@ -174,7 +179,7 @@ export function normalizeOllamaError(message: string, status?: number) {
   }
 
   if (status === 404) {
-    return "Endpoint Ollama introuvable. Vérifiez le proxy Vite et l’URL cible.";
+    return "Endpoint Ollama introuvable. Vérifiez les routes /api et l’URL cible Ollama.";
   }
 
   if (status && status >= 500) {
