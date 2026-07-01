@@ -70,32 +70,24 @@ Ce dernier header c'est pour éviter la page d'avertissement que ngrok affiche a
 ## Captures d'écran
 
 ### Le pull du modèle de base
-![Pull du modèle](01_ollama_pull.png)
+<img width="938" height="198" alt="image" src="https://github.com/user-attachments/assets/cefb9582-4a25-4757-9e1b-28123b81dbce" />
 *2.2 GB, ça a pris quelques minutes*
 
-### L'erreur qui m'a fait perdre 10 minutes
-![Erreur initiale](02_ollama_create_success.png)
-*Le message d'erreur avant que je repère les typos*
 
-Après correction :
-```
-ollama create phi3-financial -f Modelfile
-```
-**→ success**
+### fichier Modelfile 
+<img width="938" height="269" alt="image" src="https://github.com/user-attachments/assets/28834584-9708-4cbb-9c69-96f9b47cdaae" />
 
-### Le Modelfile une fois corrigé
-![Modelfile final](03_modelfile_final.png)
 
-### Le tunnel qui a fini par marcher
-![Tunnel ngrok](04_ngrok_fix_running.png)
-*Avec le flag --host-header cette fois*
+### Le tunnel ngrok
+<img width="938" height="464" alt="image" src="https://github.com/user-attachments/assets/957b19ea-9a80-48a6-afe3-dadb30067554" />
+*Avec le flag --host-header *
 
 ### Et la preuve que ça répond bien en public
-![Curl 200 OK](05_curl_200_ok_success.png)
+<img width="938" height="453" alt="image" src="https://github.com/user-attachments/assets/92d20ad4-a61f-4290-b721-4d986754a88c" />
 *Requête faite depuis l'URL ngrok, pas en local*
 
 C'est ce test qui confirme que le serveur est bien joignable depuis l'extérieur, pas juste sur ma machine.
 
 ### Les deux modèles présents en local
-![Ollama list](06_ollama_list.png)
+<img width="905" height="200" alt="image" src="https://github.com/user-attachments/assets/3de4b818-246a-47bb-a7a3-abeeef74c211" />
 *phi3.5 (base) et phi3-financial (le mien)*
