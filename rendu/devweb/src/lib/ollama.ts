@@ -1,8 +1,8 @@
 export const OLLAMA_DISPLAY_BASE_URL =
   import.meta.env.VITE_OLLAMA_BASE_URL ?? "http://localhost:11434"
 
-export const OLLAMA_PROXY_CHAT_ENDPOINT = "/ollama/api/chat"
-export const OLLAMA_PROXY_TAGS_ENDPOINT = "/ollama/api/tags"
+export const OLLAMA_PROXY_CHAT_ENDPOINT = "/api/chat"
+export const OLLAMA_PROXY_TAGS_ENDPOINT = "/api/tags"
 
 export const DEFAULT_MODEL =
   import.meta.env.VITE_OLLAMA_MODEL ?? "techcorp-financial"
