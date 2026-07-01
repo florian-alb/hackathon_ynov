@@ -71,6 +71,7 @@ Ce dernier header c'est pour éviter la page d'avertissement que ngrok affiche a
 
 ### Le pull du modèle de base
 <img width="938" height="198" alt="image" src="https://github.com/user-attachments/assets/cefb9582-4a25-4757-9e1b-28123b81dbce" />
+
 *2.2 GB, ça a pris quelques minutes*
 
 
@@ -80,14 +81,17 @@ Ce dernier header c'est pour éviter la page d'avertissement que ngrok affiche a
 
 ### Le tunnel ngrok
 <img width="938" height="464" alt="image" src="https://github.com/user-attachments/assets/957b19ea-9a80-48a6-afe3-dadb30067554" />
+
 *Avec le flag --host-header *
 
 ### Et la preuve que ça répond bien en public
 <img width="938" height="453" alt="image" src="https://github.com/user-attachments/assets/92d20ad4-a61f-4290-b721-4d986754a88c" />
+
 *Requête faite depuis l'URL ngrok, pas en local*
 
 C'est ce test qui confirme que le serveur est bien joignable depuis l'extérieur, pas juste sur ma machine.
 
 ### Les deux modèles présents en local
 <img width="905" height="200" alt="image" src="https://github.com/user-attachments/assets/3de4b818-246a-47bb-a7a3-abeeef74c211" />
+
 *phi3.5 (base) et phi3-financial (le mien)*
